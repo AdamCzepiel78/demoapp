@@ -1,0 +1,73 @@
+name: CI Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment Environment'
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+        default: 'development'
+      
+      node_version:
+        description: 'Node.js Version'
+        required: false
+        type: choice
+        options:
+          - '18'
+          - '20'
+          - '22'
+        default: '20'
+      
+      run_tests:
+        description: 'Run tests before deployment'
+        required: true
+        type: boolean
+        default: true
+      
+      custom_port:
+        description: 'Custom port (optional, overrides default)'
+        required: false
+        type: string
+        default: ''
+
+jobs:
+  validate:
+    name: Validate & Test
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run linter
+        run: npm run lint
+      
+      - name: Check formatting
+        run: npm run format:check
+      
+      - name: Run tests
+        if: ${{ inputs.run_tests }}
+        run: npm run test:coverage
+      
+      - name: Build summary
+        run: |
+          echo "### Validation Results ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Environment: **${{ inputs.environment }}**" >> $GITHUB_STEP_SUMMARY
+          echo "- Node.js: **${{ inputs.node_version }}**" >> $GITHUB_STEP_SUMMARY
+          echo "- Tests: **${{ inputs.run_tests && 'Passed' || 'Skipped' }}**" >> $GITHUB_STEP_SUMMARY
+
+ 

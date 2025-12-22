@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: demoapp
+  description: This is a Node.Js Api Demo Express API App
+  annotations:
+    github.com/project-slug: AdamCzepiel78/demoapp
+  tags:
+    - nodejs
+    - express
+    - rest-api
+spec:
+  type: service
+  lifecycle: experimental
+  owner: user:default/aczepiel
+  system: examples
