@@ -4,4 +4,8 @@ export default {
   collectCoverage: true,
   coverageDirectory: "coverage",
   clearMocks: true,
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/tests/"
+  ],
 };

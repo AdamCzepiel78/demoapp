@@ -1,4 +1,4 @@
-const express = require('express');
+import express from "express";
 
 const app = express();
 
@@ -7,16 +7,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello World!' });
+app.get("/", (req, res) => {
+  res.json({ message: "Hello World!" });
 });
 
-app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
+app.get("/health", (req, res) => {
+  res.json({
+    status: "OK",
     timestamp: new Date().toISOString(),
-    service: 'demoapp'
+    service: "demoapp",
   });
 });
 
-module.exports = app;
+export default app;

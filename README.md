@@ -10,11 +10,13 @@ This is a Node.Js Api Demo Express API App
 ## Getting Started
 
 ### Installation
+
 ```bash
 npm install
 ```
 
 ### Development
+
 ```bash
 # Start development server with hot reload
 npm run dev
@@ -23,32 +25,35 @@ npm run dev
 The server will start on port `3000`.
 
 ### Production
+
 ```bash
 npm start
 ```
 
 ## Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm start` | Start production server |
-| `npm run dev` | Start development server with hot reload |
-| `npm run lint` | Check code for linting errors |
-| `npm run lint:fix` | Auto-fix linting errors |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check if code is formatted |
-| `npm test` | Run tests |
-| `npm run test:watch` | Run tests in watch mode |
-| `npm run test:coverage` | Run tests with coverage report |
+| Command                 | Description                              |
+| ----------------------- | ---------------------------------------- |
+| `npm start`             | Start production server                  |
+| `npm run dev`           | Start development server with hot reload |
+| `npm run lint`          | Check code for linting errors            |
+| `npm run lint:fix`      | Auto-fix linting errors                  |
+| `npm run format`        | Format code with Prettier                |
+| `npm run format:check`  | Check if code is formatted               |
+| `npm test`              | Run tests                                |
+| `npm run test:watch`    | Run tests in watch mode                  |
+| `npm run test:coverage` | Run tests with coverage report           |
 
 ## API Endpoints
 
 ### Health Check
+
 ```
 GET /health
 ```
 
 Response:
+
 ```json
 {
   "status": "OK",
@@ -57,11 +62,13 @@ Response:
 ```
 
 ### Hello World
+
 ```
 GET /
 ```
 
 Response:
+
 ```json
 {
   "message": "Hello World!"
@@ -69,6 +76,7 @@ Response:
 ```
 
 ## Project Structure
+
 ```
 .
 ├── src/
