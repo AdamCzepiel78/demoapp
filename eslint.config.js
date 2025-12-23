@@ -11,7 +11,7 @@ export default [
     ignores: ["eslint.config.js", "jest.config.js"],
     languageOptions: {
       ecmaVersion: 2023,
-      sourceType: "commonjs",
+      sourceType: "module",
       globals: {
         ...globals.node,
         ...globals.jest,
