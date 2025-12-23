@@ -57,11 +57,11 @@ jobs:
         run: npm run lint
 
       - name: Check formatting
-        run: npm run format:write
+        run: npm run format && npm run format:check
 
       - name: Run tests
         if: ${{ inputs.run_tests }}
-        run: npm run format && npm run format:check
+        run: npm run test:coverage
 
       - name: Build summary
         run: |
