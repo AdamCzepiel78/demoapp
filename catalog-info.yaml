@@ -12,5 +12,5 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: user:default/aczepiel
+  owner: user:default/adam.czepiel
   system: examples
